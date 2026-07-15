@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-size: 16px; /* Default base standard size */
+  }
+
+  /* Responsive and viewport-aware dynamic HTML base scale */
+  @media (min-width: 1200px) and (min-height: 800px) {
+    html {
+      font-size: 16.5px;
+    }
+  }
+
+  @media (min-width: 1400px) and (min-height: 900px) {
+    html {
+      font-size: 17.5px;
+    }
+  }
+
+  @media (min-width: 1600px) and (min-height: 1000px) {
+    html {
+      font-size: 18.5px;
+    }
+  }
+
+  /* Shrink base size on smaller/shorter viewport heights & higher zoom levels */
+  @media (max-height: 820px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-height: 720px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-height: 640px) {
+    html {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-height: 560px) {
+    html {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-height: 480px) {
+    html {
+      font-size: 11px;
+    }
+  }
+
+  /* Degrade gracefully. If screen is too short/zoomed, allow vertical page scroll to make all content accessible */
+  @media (max-height: 720px) or (max-width: 1023px) {
+    .viewport-container {
+      height: auto !important;
+      max-height: none !important;
+      overflow-y: auto !important;
+    }
+    .viewport-main {
+      height: auto !important;
+      max-height: none !important;
+      overflow-y: visible !important;
+    }
+  }
+
+  body {
+    @apply antialiased bg-zinc-50 text-zinc-900 overflow-x-hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Custom range input styling for a cleaner look */
+input[type='range']::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 bg-black rounded-full cursor-pointer border-2 border-white shadow-sm;
+}
+
